@@ -1,0 +1,46 @@
+{
+  "version": "1.0.0",
+  "compounds": [
+    {
+      "name": "Main + renderer",
+      "configurations": ["Main", "Renderer"],
+      "stopAll": true
+    }
+  ],
+  "configurations": [
+    {
+      "name": "Renderer",
+      "port": 9222,
+      "request": "attach",
+      "type": "chrome",
+      "webRoot": "D:/project/calendar-app"
+    },
+    {
+      "name": "Main",
+      "type": "node",
+      "request": "launch",
+      "cwd": "D:/project/calendar-app",
+      "runtimeExecutable": "D:/project/calendar-app/node_modules/.bin/electron",
+      "windows": {
+        "runtimeExecutable": "D:/project/calendar-app/node_modules/.bin/electron.cmd"
+      },
+      "args": [".", "--remote-debugging-port=9222"],
+      "outputCapture": "std",
+      "console": "integratedTerminal"
+    }
+  ],
+  "description": "Hello World!",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Dami Lee",
+  "license": "ISC",
+  "devDependencies": {
+    "electron": "^44.3.0"
+  },
+  "dependencies": {
+    "node": "^22.23.2"
+  }
+}
